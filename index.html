@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2W2_TP1_Bleach </title>
+  <link rel="icon" type="image/png" href="favicon.png" sizes="all">
+
+  <!-- Connexion aux polices Google pour utiliser des polices personnalisées -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Intégration de FontAwesome pour inclure des icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTTXRMq+TgzmB2O1zIX+6X6Gv2kxiE2MDs42YI+5a3S7W3YdZhA6bY4t+9y6T7jIl1ZKMlHOrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Lien vers la feuille de styles principale -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- En-tête contenant un titre et un bouton burger pour le menu -->
+  <header class="header">
+    <div class="header-content">
+      <h1><img src="assets/images/bleach_logo.png" alt=""></h1>
+      <!-- Bouton burger (visible uniquement sur les appareils mobiles) -->
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <!-- Icône SVG représentant le menu burger -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6H21V8H3V6ZM3 11H21V13H3V11ZM3 16H21V18H3V16Z" fill="#333" />
+        </svg>
+      </button>
+    </div>
+    <!-- Menu de navigation (affiché en mode déroulant sur mobile) -->
+    <nav id="navMenu" class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="#main" class="nav-link">Article</a></li>
+        <li><a href="#galerie" class="nav-link">Galerie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section d'introduction avec un titre et un bouton -->
+  <section class="amorce">
+    <div class="overlay"></div>
+    <h1 class="animated-title"> Découvrez le monde de Bleach</h1>
+    <p class="animated-subtitle">Une oeuvre de Tite Kubo</p>
+    <!-- Bouton rond pour faire défiler vers la section principale -->
+    <a class="btn btn-rond" href="#main" aria-label="Scroll down">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 16l-6-6h12l-6 6z" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- Contenu principal -->
+  <main id="main">
+    <!-- Article principal -->
+    <article class="article">
+      <!-- Date de publication de l'article -->
+      <div class="date-avec-lignes">5 janvier 2025</div>
+      <!-- Titre de l'article -->
+      <h2 class="article-title">Bleach : La guerre sanglante de mille ans, partie 4 – Tout ce que nous savons jusqu'à présent</h2>
+      <!-- Section de description de l'article -->
+      <section class="description">
+        <p>Bleach: La guerre sanglante de mille ans </p>
+      </section>
+      <!-- Section contenant une image responsive -->
+      <section class="photos">
+        <picture>
+          <source media="(min-width: 992px)" srcset="assets/images/article_img_desktop.png">
+          <source media="(min-width: 768px)" srcset="assets/images/article_img_tablette.png">
+          <source media="(min-width: 576px)" srcset="assets/images/article_img_mobile.png">
+          <img src="assets/images/article_img_mobile.png">
+        </picture>
+      </section>
+      <!-- Bouton pour lire l'article complet -->
+      <a class="btn btn-lire-article" href="#">Lire l'article</a>
+    </article>
+
+    <!-- Section modale pour afficher l'article complet -->
+    <section id="lire-article" class="article-full" aria-hidden="true">
+      <header class="article-full-header">
+        <!-- Titre de l'article dans la modale -->
+        <h2>Bleach : La guerre sanglante de mille ans, partie 4 – Tout ce que nous savons jusqu'à présent</h2>
+        <!-- Bouton pour fermer la modale -->
+        <button class="btn close-article" id="closeArticle">
+          <i class="fas fa-times"></i> Fermer
+        </button>
+      </header>
+      <div class="article-full-body">
+        <!-- Contenu détaillé de l'article -->
+        <p>
+          Bleach: Thousand-Year Blood War travaille actuellement sur sa dernière série d'épisodes, et l'anime a dévoilé
+          les premiers détails sur ce à quoi s'attendre pour la Partie 4. Bleach: Thousand-Year Blood War marque un
+          grand retour pour l'anime Bleach, car les fans ont enfin pu voir l'arc final du manga original de Tite Kubo
+          être adapté en animation. C'est quelque chose que les fans réclamaient depuis que la diffusion originale de
+          l'anime avait été interrompue il y a plus de dix ans. Maintenant, cette adaptation tant attendue a déjà
+          parcouru ses trois premières parties au cours des dernières années.
+          Bleach: Thousand-Year Blood War avait initialement été annoncé pour être composé de quatre cours (saisons) au
+          total, avec des pauses entre chaque. Nous avons vu les trois premiers cours se terminer à la fin du calendrier
+          des animés de l'automne 2024, et il est maintenant temps de se préparer pour la quatrième et dernière vague
+          d'épisodes qui arrive bientôt. Bleach: Thousand-Year Blood War Partie 4 – The Calamity présentera certains des
+          moments les plus marquants de l'anime à ce jour, alors préparez-vous pour la véritable fin de l'anime. <br>
+        </p>
+        <!-- Section contenant une image responsive -->
+        <section class="photos">
+          <picture>
+            <source media="(min-width: 992px)" srcset="assets/images/article_img_desktop.png">
+            <source media="(min-width: 768px)" srcset="assets/images/article_img_tablette.png">
+            <source media="(min-width: 576px)" srcset="assets/images/article_img_mobile.png">
+            <img src="assets/images/article_img_mobile.png">
+          </picture>
+        </section>
+        <p>
+          <br>Quand sortira Bleach: TYBW Partie 4 ?
+          Bleach: Thousand-Year Blood War Partie 4 – The Calamity n'a malheureusement pas encore révélé de fenêtre de
+          sortie ou de date précise au moment de cette publication. Étant donné qu'il n'y a eu qu'un an d'attente
+          environ entre chaque cours de l'anime, il est fort probable que ce sera la même chose ici, avec une sortie
+          potentielle fin 2025 ou début 2026 pour les nouveaux épisodes. Mais jusqu'à ce qu'une date ou une fenêtre de
+          sortie concrète soit annoncée, l'attente risque de sembler beaucoup plus longue que pour les autres parties.
+          Comme il s'agit de la dernière, il y a une pression interne et externe importante pour qu'elle soit à la
+          hauteur.
+          Bleach: Thousand-Year Blood War Partie 3 – The Conflict se termine autour du chapitre 656 du manga original de
+          Tite Kubo, ce qui signifie qu'il ne reste plus que 30 chapitres à adapter pour ce dernier cours d'épisodes.
+          Kubo a laissé entendre lors d'un livestream spécial en décembre dernier, célébrant l'arrivée du quatrième
+          cours, que cette dernière vague d'épisodes inclurait plus de contenu original, comme dans les parties
+          précédentes. Mais contrairement à ces parties précédentes, il semble qu'il y aura des épisodes entiers avec du
+          matériel inédit par rapport au manga (ce qui serait logique étant donné le peu de contenu restant à adapter
+          avant le final).
+        </p>
+      </div>
+    </section>
+
+    <!-- Galerie d'images -->
+    <section id="galerie" class="galerie">
+      <!-- Titre de la section galerie -->
+      <h2 class="section-title">Les différents lieux de Bleach</h2>
+      <!-- Grille contenant les images de la galerie -->
+      <div class="galerie-grid">
+        <div class="galerie-item">
+          <img src="assets/img/karakura.webp" alt="Karakura">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/soul.avif" alt="Soul">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/hueco.webp" alt="Hueco">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/wanden.webp" alt="Wanden">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/tower.webp" alt="Tower">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/dangai.webp" alt="Dangai">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/hell.webp" alt="Hell">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/palace SK.webp" alt="Palace">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/rukongai.webp" alt="Rukongai">
+        </div>
+        <div class="galerie-item">
+          <img src="assets/img/wahrweit.webp" alt="Wahrweit">
+        </div>
+      </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+      <p>&copy; 2025 Bleach. Tous droits réservés. <br> Léandre Nicolas-Fernandez, TIM 2025, 2W2</p>
+    </footer>
+  </main>
+
+  <!-- Inclusion du fichier JavaScript principal -->
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>

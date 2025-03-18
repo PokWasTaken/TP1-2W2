@@ -1,0 +1,585 @@
+/* ------------------------------------------------------
+  Réinitialisation des marges et des paddings
+------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------
+  Styles de base pour le HTML
+------------------------------------------------------ */
+html {
+  font-family: 'Roboto Slab', serif; /* Police principale */
+  font-size: clamp(14px, 1vw + 14px, 22px); /* Taille de police adaptative */
+  scroll-behavior: smooth; /* Défilement fluide */
+}
+
+/* ------------------------------------------------------
+  Styles de base pour le corps de la page
+------------------------------------------------------ */
+body {
+  display: flex; /* Mise en page flexible */
+  flex-direction: column; /* Orientation verticale */
+  align-items: center; /* Centrage horizontal */
+  overflow-x: hidden; /* Désactiver le défilement horizontal */
+  background-position: center center; /* Positionnement de l'image de fond */
+  background-repeat: no-repeat; /* Pas de répétition de l'image */
+  background-attachment: fixed; /* Image de fond fixe */
+  background-size: cover; /* Couvrir toute la zone */
+  background-image: url('../images/bleach-fond-mobile.jpg'); /* Image de fond par défaut */
+}
+
+/* ------------------------------------------------------
+  En-tête et Navigation
+------------------------------------------------------ */
+.header {
+  width: 100%; /* Largeur complète */
+  height: 20%; /* Hauteur de l'en-tête */
+  background: rgba(255, 255, 255, 0.95); /* Fond blanc semi-transparent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  position: fixed; /* Position fixe en haut */
+  top: 0;
+  left: 0;
+  z-index: 1100; /* Priorité d'affichage */
+}
+
+.header-content {
+  max-width: 1200px; /* Largeur maximale */
+  padding: 1rem 2rem; /* Espacement interne */
+  display: flex; /* Mise en page flexible */
+  justify-content: space-between; /* Espacement entre les éléments */
+  align-items: center; /* Alignement vertical */
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+.header h1 {
+  font-size: 1.8rem; /* Taille du titre principal */
+}
+
+.header h2 {
+  font-size: 1.2rem; /* Taille du sous-titre */
+}
+
+/* ------------------------------------------------------
+  Bouton Burger (visible uniquement sur mobile)
+------------------------------------------------------ */
+.burger {
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  cursor: pointer; /* Curseur pointeur */
+  padding: 0; /* Pas d'espacement interne */
+  display: block; /* Affichage en bloc */
+}
+
+.burger svg {
+  width: 40px; /* Largeur de l'icône */
+  height: 40px; /* Hauteur de l'icône */
+  fill: #333; /* Couleur de l'icône */
+}
+
+/* ------------------------------------------------------
+  Menu de navigation (mobile : déroulant depuis le haut)
+------------------------------------------------------ */
+.nav-menu {
+  position: absolute; /* Position absolue */
+  top: 100%; /* Juste en dessous de l'en-tête */
+  left: 0;
+  width: 100%; /* Largeur complète */
+  background: #fff; /* Fond blanc */
+  transform: translateY(-100%); /* Masqué par défaut */
+  opacity: 0; /* Invisible par défaut */
+  pointer-events: none; /* Désactiver les clics lorsqu'il est masqué */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transition fluide */
+  z-index: 1050; /* Priorité d'affichage */
+}
+
+.nav-menu.open {
+  transform: translateY(0); /* Afficher le menu */
+  opacity: 1; /* Rendre visible */
+  pointer-events: auto; /* Activer les clics */
+}
+
+.nav-list {
+  list-style: none; /* Pas de puces */
+  padding: 1rem 0; /* Espacement interne */
+  margin: 0; /* Pas de marge */
+  display: flex; /* Mise en page flexible */
+  flex-direction: column; /* Orientation verticale */
+  align-items: center; /* Centrage horizontal */
+}
+
+.nav-list li {
+  margin: 1rem 0; /* Espacement vertical entre les éléments */
+}
+
+.nav-link {
+  text-decoration: none; /* Pas de soulignement */
+  color: #333; /* Couleur du texte */
+  font-size: 1.2rem; /* Taille de la police */
+  transition: color 0.3s, transform 0.3s; /* Transition fluide */
+}
+
+.nav-link:hover {
+  color: darkorange; /* Couleur au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* ------------------------------------------------------
+  Styles pour les écrans de bureau (min-width: 992px)
+------------------------------------------------------ */
+@media (min-width: 992px) {
+  .burger {
+   display: none; /* Masquer le bouton burger */
+  }
+
+  .header {
+   position: fixed; /* Position fixe */
+   z-index: 1150; /* Priorité d'affichage */
+  }
+
+  .nav-menu {
+   position: static; /* Position statique */
+   transform: none; /* Pas de transformation */
+   opacity: 1; /* Toujours visible */
+   background: none; /* Pas de fond */
+   box-shadow: none; /* Pas d'ombre */
+   display: block; /* Affichage en bloc */
+   max-height: none; /* Pas de limite de hauteur */
+   pointer-events: auto; /* Activer les clics */
+   z-index: 1200; /* Priorité d'affichage */
+  }
+
+  .nav-list {
+   flex-direction: row; /* Orientation horizontale */
+   justify-content: center; /* Centrage horizontal */
+   margin-top: -35px; /* Ajustement de la marge */
+  }
+
+  .nav-list li {
+   margin: 0 1rem; /* Espacement horizontal entre les éléments */
+  }
+
+  .header-content {
+   max-width: 1200px; /* Largeur maximale */
+   margin: 0 auto; /* Centrage horizontal */
+   padding: .5rem 1rem; /* Espacement interne */
+   display: flex; /* Mise en page flexible */
+   justify-content: center; /* Centrage horizontal */
+   align-items: center; /* Alignement vertical */
+  }
+}
+/* ------------------------------------------------------
+  Section d'Amorce (Introduction Section)
+  Cette section est utilisée pour afficher une introduction pleine page
+  avec un titre animé, un sous-titre et un bouton rond.
+------------------------------------------------------ */
+.amorce {
+  width: 100%; /* Prend toute la largeur de l'écran */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  position: relative; /* Position relative pour contenir les éléments absolus */
+  display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+  flex-direction: column; /* Orientation verticale des éléments */
+  justify-content: center; /* Centrage vertical des éléments */
+  align-items: center; /* Centrage horizontal des éléments */
+  text-align: center; /* Centrage du texte */
+}
+
+.amorce .overlay {
+  position: absolute; /* Position absolue pour couvrir toute la section */
+  top: 0; /* Positionné en haut */
+  left: 0; /* Positionné à gauche */
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  z-index: 1; /* Niveau d'empilement inférieur aux éléments principaux */
+}
+
+.animated-title,
+.animated-subtitle,
+.btn-rond {
+  position: relative; /* Position relative pour être au-dessus de l'overlay */
+  z-index: 2; /* Niveau d'empilement supérieur à l'overlay */
+}
+
+.animated-title {
+  font-size: 3rem; /* Taille de la police du titre */
+  font-weight: 900; /* Poids de police très gras */
+  text-transform: uppercase; /* Texte en majuscules */
+  margin-bottom: 1rem; /* Espacement en bas */
+  animation: fadeInDown 2s ease-out; /* Animation de glissement vers le bas */
+  color: #fff; /* Couleur blanche */
+}
+
+.animated-subtitle {
+  font-size: 1.5rem; /* Taille de la police du sous-titre */
+  font-style: italic; /* Style italique */
+  margin-bottom: 2rem; /* Espacement en bas */
+  animation: fadeInUp 2s ease-out; /* Animation de glissement vers le haut */
+  color: #eee; /* Couleur gris clair */
+}
+
+.btn {
+  cursor: pointer; /* Curseur pointeur pour indiquer un élément cliquable */
+  transition: transform 0.3s ease; /* Transition fluide pour les transformations */
+}
+
+.btn:hover {
+  transform: scale(1.1); /* Agrandissement au survol */
+}
+
+.btn-rond {
+  display: inline-flex; /* Flexbox pour centrer le contenu à l'intérieur */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  width: 4rem; /* Largeur du bouton rond */
+  height: 4rem; /* Hauteur du bouton rond */
+  border: 2px solid #fff; /* Bordure blanche */
+  border-radius: 50%; /* Forme circulaire */
+  font-size: 1.5rem; /* Taille de la police */
+  color: #fff; /* Couleur blanche */
+}
+
+/* ------------------------------------------------------
+  Article & Contenu Principal (Main Content)
+  Cette section contient les articles et le contenu principal de la page.
+------------------------------------------------------ */
+main {
+  width: 100%; /* Largeur complète */
+  max-width: 1200px; /* Largeur maximale pour limiter la taille */
+  margin-top: 80px; /* Espace en haut pour éviter de chevaucher l'en-tête fixe */
+  padding: 2rem; /* Espacement interne */
+}
+
+.article {
+  background: #fff; /* Fond blanc */
+  margin: 2rem 0; /* Espacement vertical */
+  padding: 2rem; /* Espacement interne */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  animation: fadeInUp 1s ease; /* Animation de glissement vers le haut */
+}
+
+.date-avec-lignes {
+  position: relative; /* Position relative pour les lignes décoratives */
+  text-align: center; /* Centrage du texte */
+  margin-bottom: 1rem; /* Espacement en bas */
+  color: #777; /* Couleur grise */
+}
+
+.date-avec-lignes::before,
+.date-avec-lignes::after {
+  content: ""; /* Contenu vide pour les lignes */
+  position: absolute; /* Position absolue pour les lignes */
+  top: 50%; /* Alignement vertical */
+  width: 30%; /* Largeur des lignes */
+  height: 1px; /* Hauteur des lignes */
+  background: #ccc; /* Couleur des lignes */
+}
+
+.date-avec-lignes::before {
+  left: 0; /* Ligne à gauche */
+}
+
+.date-avec-lignes::after {
+  right: 0; /* Ligne à droite */
+}
+
+.article-title {
+  font-size: 2rem; /* Taille de la police du titre de l'article */
+  text-transform: uppercase; /* Texte en majuscules */
+  text-align: center; /* Centrage du texte */
+  margin-bottom: 1.5rem; /* Espacement en bas */
+  animation: slideIn 1.5s ease-out; /* Animation de glissement latéral */
+  color: #333; /* Couleur gris foncé */
+}
+/* ------------------------------------------------------
+  Description Section
+  Cette section contient une description centrée avec des images et un bouton.
+------------------------------------------------------ */
+.description {
+  text-align: center; /* Centrer le texte */
+  display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  flex-direction: column; /* Orientation verticale */
+  width: 100%; /* Prend toute la largeur */
+  margin: 0 auto; /* Centrer horizontalement */
+}
+
+/* ------------------------------------------------------
+  Photos Section
+  Cette section affiche des images avec des effets au survol.
+------------------------------------------------------ */
+.photos {
+  display: flex; /* Utilisation de Flexbox pour aligner les images */
+  justify-content: center; /* Centrer horizontalement */
+  margin-bottom: 1rem; /* Espacement en bas */
+}
+
+.photos img {
+  max-width: 200%; /* Largeur maximale de l'image */
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  display: block; /* Affichage en bloc */
+  object-fit: cover; /* Recadrage de l'image pour couvrir l'espace */
+  border-radius: 10px; /* Coins arrondis */
+  transition: transform 0.3s ease; /* Transition fluide pour l'effet de transformation */
+}
+
+.photos img:hover {
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* ------------------------------------------------------
+  Bouton "Lire l'article"
+  Bouton stylisé pour lire l'article complet.
+------------------------------------------------------ */
+.btn-lire-article {
+  margin: 1rem auto 0; /* Espacement autour du bouton */
+  background: #28a745; /* Couleur de fond verte */
+  color: #fff; /* Couleur du texte blanche */
+  padding: 0.8rem 1.5rem; /* Espacement interne */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  text-transform: uppercase; /* Texte en majuscules */
+  font-size: 1rem; /* Taille de la police */
+  transition: background 0.3s ease, transform 0.3s ease; /* Transition fluide pour les effets */
+}
+
+.btn-lire-article:hover {
+  background: #218838; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* ------------------------------------------------------
+  Modal "Lire l'article"
+  Fenêtre modale pour afficher l'article complet.
+------------------------------------------------------ */
+.article-full {
+  position: fixed; /* Position fixe pour couvrir tout l'écran */
+  top: 0; /* Positionné en haut */
+  left: 0; /* Positionné à gauche */
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  background: rgba(255, 255, 255, 0.97); /* Fond blanc semi-transparent */
+  overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+  padding: 2rem; /* Espacement interne */
+  z-index: 1250; /* Priorité d'affichage élevée */
+  opacity: 0; /* Invisible par défaut */
+  pointer-events: none; /* Désactiver les clics par défaut */
+  transition: opacity 0.5s ease; /* Transition fluide pour l'opacité */
+}
+
+.article-full.show {
+  opacity: 1; /* Rendre visible */
+  pointer-events: all; /* Activer les clics */
+  animation: slideInUp 0.5s ease-out; /* Animation de glissement vers le haut */
+}
+
+/* ------------------------------------------------------
+  En-tête de la fenêtre modale
+  Contient le titre de l'article et un bouton pour fermer.
+------------------------------------------------------ */
+.article-full-header {
+  display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+  justify-content: space-between; /* Espacement entre les éléments */
+  align-items: center; /* Alignement vertical */
+  border-bottom: 2px solid #ddd; /* Ligne de séparation en bas */
+  padding-bottom: 1rem; /* Espacement en bas */
+  margin-bottom: 1rem; /* Espacement en bas */
+}
+
+/* ------------------------------------------------------
+  Bouton de fermeture
+  Bouton pour fermer la fenêtre modale.
+------------------------------------------------------ */
+.close-article {
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  font-size: 1.5rem; /* Taille de la police */
+  color: #333; /* Couleur du texte */
+  cursor: pointer; /* Curseur pointeur */
+  transition: transform 0.3s ease; /* Transition fluide pour l'effet de transformation */
+}
+
+.close-article:hover {
+  transform: scale(1.1); /* Agrandissement au survol */
+}
+/* ------------------------------------------------------
+  Section Galerie (Mobile First)
+  Cette section affiche une galerie d'images avec un design adaptatif.
+------------------------------------------------------ */
+.galerie {
+  width: 98%; /* Largeur de la galerie (presque pleine largeur) */
+  margin: 2rem auto; /* Centrage horizontal avec marge verticale */
+  padding: 20px; /* Espacement interne */
+  background-color: rgb(233, 233, 233); /* Couleur de fond gris clair */
+  border-radius: 20px; /* Coins arrondis */
+  text-align: center; /* Centrage du texte */
+}
+
+.section-title {
+  color: #333; /* Couleur du texte (gris foncé) */
+  font-size: 2rem; /* Taille de la police */
+  margin-bottom: 1rem; /* Espacement en bas */
+}
+
+/* ------------------------------------------------------
+  Grille de la Galerie
+  Par défaut (mobile) : une seule colonne
+------------------------------------------------------ */
+.galerie-grid {
+  display: grid; /* Utilisation de CSS Grid */
+  grid-template-columns: 1fr; /* Une seule colonne */
+  gap: 20px; /* Espacement entre les éléments */
+}
+
+.galerie-item img {
+  width: 100%; /* Largeur maximale de l'image */
+  border-radius: 20px; /* Coins arrondis */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide pour les effets */
+  cursor: pointer; /* Curseur pointeur pour indiquer un élément cliquable */
+  border: 2px solid #1f1f1fda; /* Bordure noire semi-transparente */
+}
+
+.galerie-item img:hover {
+  transform: scale(1.05); /* Agrandissement au survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre légère au survol */
+}
+
+.galerie-item img:active {
+  transform: scale(2); /* Agrandissement important lors du clic */
+}
+
+/* ------------------------------------------------------
+  Requêtes Média pour la Galerie
+  Moyens appareils : deux colonnes
+------------------------------------------------------ */
+@media (min-width: 576px) {
+  .galerie-grid {
+   grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+  }
+}
+
+/* ------------------------------------------------------
+  Grille de la Galerie pour les grands écrans
+  Appareils de bureau : quatre colonnes
+------------------------------------------------------ */
+@media (min-width: 992px) {
+  .galerie-grid {
+   grid-template-columns: repeat(4, 1fr); /* Quatre colonnes */
+  }
+}
+
+/* ------------------------------------------------------
+  Pied de page (Footer)
+  Section située en bas de la page avec un fond sombre.
+------------------------------------------------------ */
+.footer {
+  background: #333; /* Couleur de fond sombre */
+  color: #fff; /* Couleur du texte blanche */
+  width: 100%; /* Largeur complète */
+  text-align: center; /* Centrage du texte */
+  padding: 1rem 0; /* Espacement interne vertical */
+  margin-top: 2rem; /* Espacement en haut */
+}
+
+/* ------------------------------------------------------
+  Animations CSS par Keyframes
+  Définition des animations utilisées dans la page.
+------------------------------------------------------ */
+@keyframes fadeInDown {
+  from {
+   opacity: 0; /* Départ invisible */
+   transform: translateY(-30px); /* Déplacement vers le bas */
+  }
+
+  to {
+   opacity: 1; /* Fin visible */
+   transform: translateY(0); /* Position initiale */
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+   opacity: 0; /* Départ invisible */
+   transform: translateY(30px); /* Déplacement vers le haut */
+  }
+
+  to {
+   opacity: 1; /* Fin visible */
+   transform: translateY(0); /* Position initiale */
+  }
+}
+
+@keyframes slideIn {
+  from {
+   opacity: 0; /* Départ invisible */
+   transform: translateX(-50px); /* Déplacement latéral */
+  }
+
+  to {
+   opacity: 1; /* Fin visible */
+   transform: translateX(0); /* Position initiale */
+  }
+}
+
+@keyframes slideInUp {
+  from {
+   opacity: 0; /* Départ invisible */
+   transform: translateY(100%); /* Déplacement vers le haut */
+  }
+
+  to {
+   opacity: 1; /* Fin visible */
+   transform: translateY(0); /* Position initiale */
+  }
+}
+
+/* ------------------------------------------------------   
+  Requêtes Média pour Responsive Design
+  Ajustements pour différents types d'écrans.
+------------------------------------------------------ */
+@media (min-width: 768px) {
+  html {
+   font-size: clamp(16px, 1vw + 16px, 24px); /* Taille de police adaptative */
+  }
+
+  body {
+   background-image: url('../images/bleach-fond-tablette.jpg'); /* Image de fond pour tablettes */
+  }
+
+  .article {
+   flex-direction: row; /* Orientation horizontale */
+   gap: 2rem; /* Espacement entre les éléments */
+  }
+
+  .photos,
+  .description {
+   width: 50%; /* Largeur de 50% pour les sections */
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+   background-image: url('../images/bleach-fond-desktop.jpg'); /* Image de fond pour ordinateurs */
+  }
+
+  .header-content {
+   max-width: 1200px; /* Largeur maximale */
+   margin: 0 auto; /* Centrage horizontal */
+  }
+
+  .nav-menu {
+   transform: none !important; /* Pas de transformation */
+  }
+
+  .nav-list {
+   flex-direction: row; /* Orientation horizontale */
+  }
+
+  .article {
+   width: 80%; /* Largeur de 80% */
+   margin: 3rem auto; /* Centrage horizontal avec marge verticale */
+  }
+}
